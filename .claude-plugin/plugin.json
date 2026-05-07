@@ -1,0 +1,34 @@
+{
+  "name": "office-skills",
+  "description": "Open-source office automation skills for DOCX, PDF, PPTX, editable figures, SVG/TikZ/draw.io assets, and promotional GIF workflows with validation-first agent patterns",
+  "version": "0.1.0",
+  "author": {
+    "name": "ARIHOAX"
+  },
+  "homepage": "https://github.com/arih04x/office-skills",
+  "repository": "https://github.com/arih04x/office-skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "office",
+    "docx",
+    "word",
+    "pdf",
+    "reportlab",
+    "pypdf",
+    "pdfplumber",
+    "pptx",
+    "powerpoint",
+    "figure",
+    "svg",
+    "motion",
+    "gif",
+    "animation",
+    "animated-gif",
+    "diagram",
+    "tikz",
+    "drawio",
+    "openxml",
+    "pptxgenjs"
+  ]
+}

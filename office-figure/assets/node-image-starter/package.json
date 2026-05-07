@@ -1,0 +1,9 @@
+{
+  "name": "office-figure-image-task",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "openai": "^6.34.0"
+  }
+}

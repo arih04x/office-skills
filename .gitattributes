@@ -1,0 +1,29 @@
+* text=auto
+
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.py text eol=lf
+*.cs text eol=lf
+*.csproj text eol=lf
+*.ps1 text eol=lf
+*.tex text eol=lf
+*.drawio text eol=lf
+*.example text eol=lf
+.gitattributes text eol=lf
+*.gitignore text eol=lf
+.gitkeep text eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.mp4 binary
+*.mov binary
+*.webm binary
+*.docx binary
+*.pptx binary
+*.pdf binary

@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="method-pipeline" name="Method Pipeline">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="780" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="n1" value="Source&#xa;Material" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#111827;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="210" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="Editable&#xa;Structure" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;fontColor=#111827;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="210" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="Office / LaTeX&#xa;Asset" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#111827;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="210" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#334155;" edge="1" parent="1" source="n1" target="n2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#334155;" edge="1" parent="1" source="n2" target="n3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="caption" value="Generated images can support the figure, while labels and data remain editable." style="text;html=1;strokeColor=none;fillColor=none;fontColor=#475569;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="190" y="325" width="560" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

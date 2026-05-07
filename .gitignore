@@ -1,0 +1,56 @@
+# Local secrets and API configuration
+config/office-skills.local.env
+config/*.local.env
+config/*.secret.env
+**/assets/env/env.conf
+**/assets/env/*.local
+**/assets/env/*.secret
+**/assets/env/*.key
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+.claude/*.local.json
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+id_rsa
+id_ed25519
+
+# Node / JavaScript task output
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# .NET build output
+bin/
+obj/
+*.user
+*.suo
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Generated task output
+out/
+generated/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Office/Windows lock files
+~$*
+Thumbs.db
+desktop.ini

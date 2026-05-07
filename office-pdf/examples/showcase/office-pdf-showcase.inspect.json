@@ -1,0 +1,35 @@
+{
+  "status": "ok",
+  "input": "office-pdf\\examples\\showcase\\office-pdf-showcase.pdf",
+  "encrypted": false,
+  "page_count": 2,
+  "metadata": {
+    "/Author": "ARIHOAX Office",
+    "/CreationDate": "D:20260505143308+08'00'",
+    "/Creator": "(unspecified)",
+    "/Keywords": "",
+    "/ModDate": "D:20260505143308+08'00'",
+    "/Producer": "ReportLab PDF Library - (opensource)",
+    "/Subject": "(unspecified)",
+    "/Title": "Office PDF Capability Sheet",
+    "/Trapped": "/False"
+  },
+  "pages": [
+    {
+      "page": 1,
+      "width_pt": 595.28,
+      "height_pt": 841.89,
+      "rotation": 0,
+      "text_chars": 1184
+    },
+    {
+      "page": 2,
+      "width_pt": 595.28,
+      "height_pt": 841.89,
+      "rotation": 0,
+      "text_chars": 229
+    }
+  ],
+  "form_field_count": 0,
+  "form_fields": []
+}

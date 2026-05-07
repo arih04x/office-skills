@@ -1,0 +1,4 @@
+interface:
+  display_name: "Office DOCX"
+  short_description: "Edit Word documents with OpenXML SDK."
+  default_prompt: "Use $office-docx to create or edit this Word DOCX document."

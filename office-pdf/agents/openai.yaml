@@ -1,0 +1,4 @@
+interface:
+  display_name: "Office PDF"
+  short_description: "Create, inspect, fill, render, and validate PDFs."
+  default_prompt: "Use $office-pdf to create, inspect, fill, render, or validate this PDF."

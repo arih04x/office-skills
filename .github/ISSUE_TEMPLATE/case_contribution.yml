@@ -1,0 +1,34 @@
+name: Community case
+description: Propose a good, correction, or anti-pattern case for a skill.
+title: "[Case]: "
+labels: ["case", "community"]
+body:
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Skill
+      options:
+        - office-docx
+        - office-pdf
+        - office-ppt
+        - office-figure
+        - office-motion
+    validations:
+      required: true
+  - type: dropdown
+    id: lane
+    attributes:
+      label: Case lane
+      options:
+        - good
+        - corrections
+        - anti-patterns
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and expected contribution
+      description: Describe the user goal, inputs, workflow, output, and validation.
+    validations:
+      required: true

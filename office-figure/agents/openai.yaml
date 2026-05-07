@@ -1,0 +1,4 @@
+interface:
+  display_name: "Office Figure"
+  short_description: "Create editable research figures, charts, and TikZ/Office assets."
+  default_prompt: "Use $office-figure to create an editable research figure with source files and rendered assets."

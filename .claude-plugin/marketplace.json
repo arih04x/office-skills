@@ -1,0 +1,18 @@
+{
+  "name": "office-skills",
+  "description": "Open-source office automation skills for DOCX, PDF, PPTX, editable figures, SVG/TikZ/draw.io assets, and promotional GIF workflows",
+  "owner": {
+    "name": "ARIHOAX"
+  },
+  "plugins": [
+    {
+      "name": "office-skills",
+      "description": "Open-source office automation skills for DOCX, PDF, PPTX, editable figures, SVG/TikZ/draw.io assets, and promotional GIF workflows",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "ARIHOAX"
+      }
+    }
+  ]
+}

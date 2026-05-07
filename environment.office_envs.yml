@@ -1,0 +1,19 @@
+name: office_envs
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - ffmpeg
+  - pip
+  - pip:
+      - python-docx
+      - pypdf
+      - reportlab
+      - pandas
+      - openpyxl
+      - matplotlib
+      - pdfplumber
+      - pillow
+      - PyMuPDF
+      - "pywin32; platform_system == 'Windows'"
+      - pyyaml

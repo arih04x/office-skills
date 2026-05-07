@@ -1,0 +1,4 @@
+interface:
+  display_name: "Office PPT"
+  short_description: "Build styled PPTX slides with GPT images."
+  default_prompt: "Use $office-ppt to create a styled editable PowerPoint slide."

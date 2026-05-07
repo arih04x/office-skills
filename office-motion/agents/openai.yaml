@@ -1,0 +1,4 @@
+interface:
+  display_name: "Office Motion"
+  short_description: "Create promotional GIFs and PPT-ready motion assets."
+  default_prompt: "Use $office-motion to create a promotional GIF or PowerPoint-ready animated asset."
