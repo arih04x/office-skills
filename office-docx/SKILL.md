@@ -5,75 +5,31 @@ description: "Create, edit, inspect, format, template, and validate Microsoft Wo
 
 # Office DOCX
 
-Use this skill when the requested output or source file is a Word `.docx`.
-Implement the task with C# on .NET and the OpenXML SDK, adapting the code to the
-document structure and the user's requested result.
+Use this skill for Word `.docx` tasks. Implement with C# on .NET + OpenXML SDK.
 
 ## Operating Model
 
-- Use the local `dotnet` installation from PATH. If a contributor uses a
-  portable SDK, they should expose it through PATH before running the task.
-- Use the public NuGet package `DocumentFormat.OpenXml`.
-- Create a small task project in the user's working/output folder. Copy
-  `assets/dotnet-starter/` when a ready C# starting point is useful.
-- Preserve the user's source document. Write the result to a separate output
-  `.docx`.
-- Keep document content editable as Word content: paragraphs, runs, tables,
-  sections, styles, fields, headers, footers, and drawing parts.
-- Choose references by task. Load only the relevant files.
+- `dotnet` from PATH; NuGet package `DocumentFormat.OpenXml`.
+- Copy `assets/dotnet-starter/` as starting point when useful.
+- Preserve source document; write result to a separate `.docx`.
+- Keep content editable (paragraphs, runs, tables, styles, fields, drawings).
 
 ## Task Selection
 
-| Task | Read | Implementation focus |
+| Task | Read | Focus |
 | --- | --- | --- |
-| Create a new report, memo, manuscript, contract, proposal, or formal document | `references/create-docx.md` | Build the package, body structure, styles, page setup, tables, images, and fields in C# |
-| Edit an existing `.docx` | `references/edit-existing-docx.md` | Copy input to output, inspect structure, then modify paragraphs, runs, tables, fields, comments, or images |
-| Apply or imitate a template | `references/template-formatting.md` | Transfer styles/theme/numbering/sections safely, or use the template as the output base |
-| Validate, diagnose, or repair a document | `references/validation.md` | Run OpenXML validation, inspect package parts, and check Word-openability when layout matters |
-| Any structural DOCX operation | `references/openxml-rules.md` | Follow element ordering, units, style, section, table, image, and tracked-change rules |
+| Create new document | `references/create-docx.md` | Package, body, styles, page setup, tables, images, fields |
+| Edit existing `.docx` | `references/edit-existing-docx.md` | Copy to output, inspect, modify content |
+| Apply/imitate template | `references/template-formatting.md` | Transfer styles/theme/numbering safely |
+| Validate/repair | `references/validation.md` | OpenXML validation, package inspection |
+| Structural rules | `references/openxml-rules.md` | Element ordering, units, sections, tables |
 
-## Implementation Steps
+Read the matching reference, implement, run, validate with `scripts/check-docx.py`.
 
-1. Inspect the request, input files, and desired output path.
-2. Determine the task type: create, edit, template, validate, or mixed.
-3. Open the matching reference file before writing code.
-4. Create or copy a .NET console task project:
+## Key Rules
 
-   ```powershell
-   dotnet new console --framework net8.0
-   dotnet add package DocumentFormat.OpenXml --version 3.2.0
-   ```
-
-5. Write task-specific C# that uses OpenXML SDK object APIs.
-6. Run `dotnet build` and then `dotnet run`.
-7. Validate the output. For layout-sensitive work, open in Word or export with
-   Word automation as a final visual check.
-8. Report the output path, validation result, and any residual limitations.
-
-## Code Guidelines
-
-- Use OpenXML SDK classes instead of raw string edits inside ZIP entries.
-- For simple text replacement, modify `Text` elements only when the match is
-  contained in one run. For matches spanning runs, operate at paragraph level
-  with an explicit formatting decision.
-- For generated documents, define styles first, then author content using style
-  IDs. Headings need outline levels for Word navigation and TOC.
-- For template work, treat direct formatting as higher priority than styles.
-  Strip or preserve it deliberately.
-- For CJK documents, set East Asian fonts in `RunFonts` and confirm line spacing,
-  page size, margins, and heading hierarchy.
-- For tables, create `tblPr`, `tblGrid`, rows, cells, and at least one paragraph
-  per cell.
-- For sections, keep section properties in the correct location. The final
-  body-level `sectPr` remains the last child of `w:body`.
-
-## Resources
-
-- `assets/dotnet-starter/`: minimal compilable OpenXML SDK console project.
-- `references/openxml-rules.md`: core OpenXML safety rules.
-- `references/create-docx.md`: creating new documents.
-- `references/edit-existing-docx.md`: editing existing documents.
-- `references/template-formatting.md`: template and formatting work.
-- `references/validation.md`: validation and visual checks.
-- `examples/`: concrete task examples written as implementation briefs.
-- `examples/showcase/showcase-report.docx`: viewable DOCX showcase generated by the starter.
+- Use SDK classes, not raw ZIP string edits.
+- Text replacement: single-run matches only; multi-run → paragraph-level rewrite.
+- Generated docs: define styles first, then content via style IDs.
+- CJK: set East Asian fonts in `RunFonts`; confirm spacing and hierarchy.
+- Final `sectPr` must be last child of `w:body`.

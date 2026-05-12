@@ -59,6 +59,17 @@ archives if they are not available in your distribution repository.
 
 ## Installation
 
+### Option A: Install with npx
+
+```bash
+npx office-skills install
+```
+
+Supports `--target <path>`, `--dry-run`, and `--force`. Default target is
+`~/.agents/skills/office-skills`.
+
+### Option B: Clone and link manually
+
 1. Clone the repository:
 
    ```bash
@@ -127,7 +138,14 @@ Check that the collection link exists:
 ls -la ~/.agents/skills/office-skills
 ```
 
-Validate the skill metadata from a local clone:
+Run the unified smoke test from the clone:
+
+```bash
+cd ~/.codex/office-skills
+npm run smoke
+```
+
+Or validate individual components:
 
 ```bash
 python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py ~/.codex/office-skills/office-docx

@@ -29,11 +29,18 @@ setup is documented at the repository root.
 
 ## Quick Start
 
-Clone the repository:
+Install and link with npx (Node 20+):
+
+```bash
+npx office-skills install
+```
+
+Or clone the repository for development:
 
 ```bash
 git clone git@github.com:arih04x/office-skills.git
 cd office-skills
+npm run smoke
 ```
 
 Create the shared local Python environment:
@@ -138,6 +145,13 @@ See `CONTRIBUTING.md` and `docs/CASE_GUIDE.md` before opening a case PR.
 Run the repository validation before opening a PR:
 
 ```bash
+npm run validate
+npm run smoke
+```
+
+Or without npm:
+
+```bash
 python .claude/skills/office-skills-review/scripts/validate_skills.py
 python -m py_compile office-pdf/scripts/pdf_toolkit.py office-figure/scripts/render-tikz.py office-motion/scripts/motion_toolkit.py
 node --check office-ppt/assets/node-starter/create-onij-slide.mjs
@@ -145,6 +159,20 @@ node --check office-figure/assets/node-image-starter/generate-style-image.mjs
 ```
 
 GitHub Actions also runs these checks on pull requests.
+
+## Publishing Safety
+
+Before publishing to npm:
+
+```bash
+npm run validate
+npm run smoke
+npm run pack:check
+npm pack --dry-run
+```
+
+The package uses a `files` allowlist and `.npmignore` to exclude local secrets,
+generated output, caches, and private config.
 
 ## Installation Details
 

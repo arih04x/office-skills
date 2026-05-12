@@ -39,3 +39,11 @@ When adding or changing a skill, update:
 - `.codex/INSTALL.md` when installation changes
 - `.claude-plugin/plugin.json` keywords/description when repository scope changes
 - relevant skill references
+
+## Validation and Smoke Tests
+
+- Prefer `npm run validate` and `npm run smoke` over raw commands.
+- Safe image smoke must use `--mock` / `--no-network` mode.
+- Publishing requires `npm run pack:check` before `npm publish`.
+- Mock smoke outputs go under ignored `out/` directories.
+- Real image generation tests are opt-in and require local env configuration.

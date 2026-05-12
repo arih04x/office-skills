@@ -22,6 +22,29 @@ Each skill directory must include:
 - task-specific `examples/`
 - `assets/` or `scripts/` only when the skill actually needs them
 
+## Root Package
+
+The repository root includes a `package.json` that serves as the npm
+distribution and task-runner wrapper. It must not absorb skill-specific content.
+
+Required root package fields:
+
+- `name`: `office-skills`
+- `version`
+- `license`
+- `bin.office-skills`
+- `files` (allowlist)
+- `scripts.validate`
+- `scripts.smoke`
+- `scripts.pack:check`
+
+Root `scripts/` contains only cross-cutting CLI/task-runner code.
+
+## Shared Utilities
+
+`scripts/shared/` contains cross-skill utility functions (env loading, common
+helpers). No skill-specific logic belongs here.
+
 ## SKILL.md Frontmatter
 
 `SKILL.md` must start with YAML frontmatter enclosed by `---`.
@@ -54,6 +77,18 @@ The validator blocks high-confidence secret patterns such as:
 - long bearer tokens
 
 Manual review should still check API key handling in scripts and docs.
+
+## Publication Safety
+
+The npm package uses a `files` allowlist and `.npmignore` for defense-in-depth.
+Before publishing, run:
+
+```bash
+npm run pack:check
+npm pack --dry-run
+```
+
+Nested starter `package.json` files must remain `"private": true`.
 
 ## Examples vs Assets
 

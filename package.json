@@ -1,0 +1,73 @@
+{
+  "name": "office-skills",
+  "version": "0.1.0",
+  "description": "Open-source Codex office automation skills for DOCX, PDF, PPTX, editable figures, SVG/TikZ/draw.io assets, and promotional GIF workflows.",
+  "license": "MIT",
+  "author": "ARIHOAX",
+  "type": "module",
+  "bin": {
+    "office-skills": "scripts/office-skills.mjs"
+  },
+  "scripts": {
+    "validate": "node scripts/office-skills.mjs validate",
+    "smoke": "node scripts/office-skills.mjs smoke",
+    "smoke:syntax": "node scripts/office-skills.mjs smoke:syntax",
+    "smoke:image": "node scripts/office-skills.mjs smoke:image",
+    "pack:check": "node scripts/office-skills.mjs pack:check",
+    "prepack": "node scripts/office-skills.mjs validate"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "environment.office_envs.yml",
+    ".codex/INSTALL.md",
+    ".claude/skills/office-skills-review/SKILL.md",
+    ".claude/skills/office-skills-review/scripts/validate_skills.py",
+    ".claude/skills/office-skills-review/references/",
+    ".claude-plugin/",
+    "config/office-skills.local.env.example",
+    "docs/",
+    "office-docx/",
+    "office-pdf/",
+    "office-ppt/",
+    "office-figure/",
+    "office-motion/",
+    "scripts/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arih04x/office-skills.git"
+  },
+  "homepage": "https://github.com/arih04x/office-skills",
+  "bugs": {
+    "url": "https://github.com/arih04x/office-skills/issues"
+  },
+  "keywords": [
+    "skills",
+    "codex",
+    "office",
+    "docx",
+    "word",
+    "pdf",
+    "pptx",
+    "powerpoint",
+    "figure",
+    "svg",
+    "tikz",
+    "drawio",
+    "motion",
+    "gif",
+    "openxml",
+    "pptxgenjs",
+    "agent-skills"
+  ]
+}

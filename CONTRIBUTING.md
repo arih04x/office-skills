@@ -72,8 +72,28 @@ scripts should accept `OFFICE_SKILLS_ENV` or `--env` for private external config
 Recommended checks:
 
 ```bash
+npm run validate
+npm run smoke
+```
+
+Or without npm:
+
+```bash
 python .claude/skills/office-skills-review/scripts/validate_skills.py
 python -m py_compile office-pdf/scripts/pdf_toolkit.py office-figure/scripts/render-tikz.py office-motion/scripts/motion_toolkit.py
 node --check office-ppt/assets/node-starter/create-onij-slide.mjs
 node --check office-figure/assets/node-image-starter/generate-style-image.mjs
 ```
+
+## Publishing (Maintainers)
+
+Before publishing a new version:
+
+```bash
+npm run validate
+npm run smoke
+npm run pack:check
+npm pack --dry-run
+```
+
+Mock image smoke must not require secrets. Do not commit smoke test outputs.

@@ -5,72 +5,31 @@ description: "Create, inspect, extract, render, fill, merge, split, and validate
 
 # Office PDF
 
-Use this skill when the requested output or source file is a PDF, or when the
-task requires PDF rendering, inspection, extraction, form filling, or visual QA.
-
-Prefer a Python-first, cross-platform pipeline. Use browser rendering only when
-the task explicitly needs HTML/CSS fidelity. Visual quality matters: render the
-result to PNG and inspect the pages before delivery whenever layout matters.
+Use this skill for PDF tasks. Python-first, cross-platform pipeline.
 
 ## Operating Model
 
-- Use Python 3.11+ with `reportlab`, `pypdf`, `pdfplumber`, `PyMuPDF` (`fitz`),
-  Pillow, and matplotlib when available.
-- Copy or adapt `scripts/pdf_toolkit.py` for deterministic repeated operations.
-- Preserve the user's source PDF. Write changed output to a separate file.
-- Keep reusable source beside rendered PDFs: JSON content, Markdown source,
-  input data, or script used to create the PDF.
-- For CJK documents, verify font availability and render pages to PNG before
-  delivery.
+- Python 3.11+ with `reportlab`, `pypdf`, `pdfplumber`, `PyMuPDF`, Pillow, matplotlib.
+- Use `scripts/pdf_toolkit.py` for repeatable operations (inspect, render, create-demo, merge, fill).
+- Preserve source PDF; write output to a separate file.
+- For CJK: verify font availability and render to PNG before delivery.
 
 ## Task Selection
 
-| Task | Read | Implementation focus |
+| Task | Read | Focus |
 | --- | --- | --- |
-| Create a polished PDF | `references/create-pdf.md` | Build structured content with ReportLab, style tokens, headers/footers, tables, charts, and source data |
-| Inspect, extract, or diagnose an existing PDF | `references/edit-existing-pdf.md` | Use `pypdf`, `pdfplumber`, and visual rendering; preserve the original |
-| Fill PDF forms | `references/edit-existing-pdf.md` | Inspect exact field names first, then write values with `pypdf` |
-| Validate layout or print readiness | `references/validation.md` | Render pages to PNG, inspect text fit, page boxes, metadata, and page count |
-| Decide quality bar and visual system | `references/pdf-quality.md` | Choose restrained typography, semantic accent, stable spacing, and output checks |
+| Create polished PDF | `references/create-pdf.md` | ReportLab, style tokens, headers/footers, tables, charts |
+| Inspect/extract/diagnose | `references/edit-existing-pdf.md` | pypdf, pdfplumber, visual rendering |
+| Fill PDF forms | `references/edit-existing-pdf.md` | Inspect field names first, then write values |
+| Validate layout | `references/validation.md` | Render to PNG, check text fit, page boxes, metadata |
+| Quality bar | `references/pdf-quality.md` | Typography, accent color, spacing, output checks |
 
-## Implementation Steps
+Read the matching reference, implement, validate with `scripts/pdf_toolkit.py inspect` + `render`.
 
-1. Classify the task: create, inspect, extract, fill, merge, split, render, or
-   mixed.
-2. Open the matching reference file before writing or running code.
-3. Use `scripts/pdf_toolkit.py` when it covers the operation:
+## Key Rules
 
-   ```bash
-   python scripts/pdf_toolkit.py inspect --input input.pdf
-   python scripts/pdf_toolkit.py render --input input.pdf --outdir rendered
-   python scripts/pdf_toolkit.py create-demo --out out.pdf
-   ```
-
-4. For custom documents, create task-local source files and keep them with the
-   output.
-5. Validate the output with `inspect` and `render`.
-6. Report output PDF, source files, rendered previews, and any residual
-   limitations.
-
-## Design Rules
-
-- Use PDF when the final artifact is meant for fixed layout or print.
-- Use DOCX when the user needs rich Word editing after delivery.
-- Avoid bitmap-only PDFs unless the user explicitly wants scans or image-backed
-  pages.
-- Keep body text readable at normal zoom and printed A4/Letter scale.
-- Use one semantic accent color, stable margins, and consistent headers/footers.
-- For form filling, never guess field names. Inspect first.
-- For extraction, state that text extraction is not layout-perfect unless visual
-  review confirms it.
-
-## Resources
-
-- `scripts/pdf_toolkit.py`: cross-platform helper for create-demo, inspect,
-  render, extract, merge, and fill.
-- `references/create-pdf.md`: creating new PDFs.
-- `references/edit-existing-pdf.md`: inspecting, extracting, filling, merging,
-  and diagnosing existing PDFs.
-- `references/validation.md`: visual and structural PDF checks.
-- `references/pdf-quality.md`: quality bar and design rules.
-- `examples/`: implementation briefs and showcase outputs.
+- PDF for fixed layout/print; DOCX when user needs Word editing.
+- No bitmap-only PDFs unless explicitly requested.
+- Body text readable at A4/Letter scale; one accent color; stable margins.
+- Form filling: never guess field names — inspect first.
+- Extraction: state it's not layout-perfect unless visual review confirms.
